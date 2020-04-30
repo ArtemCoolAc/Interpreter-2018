@@ -1,0 +1,56 @@
+﻿  Process "lab2.y" bison file
+lab2.y : warning : 10 shift/reduce conflicts [-Wconflicts-sr]
+  Process "lab2.l" flex file
+  variant.cpp
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\variant.cpp(14): warning C4018: <=: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\variant.cpp(91): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\variant.cpp(98): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\variant.cpp(100): warning C4018: <: несоответствие типов со знаком и без знака
+  tree.cpp
+  robot.cpp
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(69): warning C4018: <=: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(79): warning C4018: >: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(80): warning C4018: <=: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(89): warning C4018: <=: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(100): warning C4018: >: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(101): warning C4018: <=: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(111): warning C4018: >=: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(111): warning C4018: <=: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(121): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(121): warning C4018: >: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(122): warning C4018: <=: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(153): warning C4018: >=: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(163): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(175): warning C4018: >: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(176): warning C4018: <=: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(184): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(184): warning C4018: >: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(185): warning C4018: <=: несоответствие типов со знаком и без знака
+c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\robot.cpp(202): warning C4018: <: несоответствие типов со знаком и без знака
+  moretrees.cpp
+  lab2.tab.cpp
+  lab2.flex.cpp
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\stdint.h(48): warning C4005: INT8_MIN: изменение макроопределения
+  c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\lab2.flex.cpp(59): note: см. предыдущее определение "INT8_MIN"
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\stdint.h(49): warning C4005: INT16_MIN: изменение макроопределения
+  c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\lab2.flex.cpp(62): note: см. предыдущее определение "INT16_MIN"
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\stdint.h(50): warning C4005: INT32_MIN: изменение макроопределения
+  c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\lab2.flex.cpp(65): note: см. предыдущее определение "INT32_MIN"
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\stdint.h(52): warning C4005: INT8_MAX: изменение макроопределения
+  c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\lab2.flex.cpp(68): note: см. предыдущее определение "INT8_MAX"
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\stdint.h(53): warning C4005: INT16_MAX: изменение макроопределения
+  c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\lab2.flex.cpp(71): note: см. предыдущее определение "INT16_MAX"
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\stdint.h(54): warning C4005: INT32_MAX: изменение макроопределения
+  c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\lab2.flex.cpp(74): note: см. предыдущее определение "INT32_MAX"
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\stdint.h(56): warning C4005: UINT8_MAX: изменение макроопределения
+  c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\lab2.flex.cpp(77): note: см. предыдущее определение "UINT8_MAX"
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\stdint.h(57): warning C4005: UINT16_MAX: изменение макроопределения
+  c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\lab2.flex.cpp(80): note: см. предыдущее определение "UINT16_MAX"
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\stdint.h(58): warning C4005: UINT32_MAX: изменение макроопределения
+  c:\users\hp\desktop\ta\lab2\interpreter2\interpreter\interpreter\lab2.flex.cpp(83): note: см. предыдущее определение "UINT32_MAX"
+  ftab.cpp
+  eltab.cpp
+  element.cpp
+  Создание кода...
+  Interpreter.vcxproj -> C:\Users\HP\Desktop\TA\Lab2\Interpreter2\Interpreter\Debug\Interpreter.exe
+  Interpreter.vcxproj -> C:\Users\HP\Desktop\TA\Lab2\Interpreter2\Interpreter\Debug\Interpreter.pdb (Partial PDB)

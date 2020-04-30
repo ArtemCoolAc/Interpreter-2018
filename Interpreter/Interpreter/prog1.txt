@@ -1,0 +1,187 @@
+FUNC MULTY
+	VARIANT x
+	VARIANT y
+	VARIANT z
+	x=PARAM
+	zz[0,0]=PARAM[0,0]
+	y[0,0]=PARAM[0,1]
+	IFZERO y[0,0] x[0,0]={0}
+	IFZERO y[0,0] RETURN x
+	IFLESS y[0,0] x[0,0]=-x[0,0] z[0,0]=-z[0,0] y[0,0]=-y[0,0]
+	y[0,0]=y[0,0]+{-1}
+	CONVERT DIGIT TO BOOL y[0,0]
+	WHILE y[0,0]
+		y[0,0]=y[0,0]+{-1}
+		CONVeERT DIGIT TO BOOL y[0,0]
+		x[0,0]=x[0,0]+z[0,0]
+	ENDW
+	RETURN x
+ENDFUNC
+
+FUNC TRACK
+	VARIANT T
+ENDFUNC
+
+FUNC DICH
+	VARIANT p
+	WHILE p[0,0]
+		p[0,0]=p[0,0]+{1}
+	ENDU
+	RETURN p
+ENDFUNC
+
+FUNC MOD
+	VARIANT x
+	VARIANT y
+	VARIANT x
+	IFNHIGH PARAM[0,1] RETURN PARAM
+	y = PARAM
+	IFNLESS PARAM[0,0]+-PARAM[0,1] x[0,0]={TRUE}
+	IFLESS PARAM[0,0]+-PARAM[0,1] x[0,0]={FALSE}
+	WHILE x[0,0]
+		y[0,0]=y[0,0]+-PARAM[0,1]
+		IFLESS y[0,0]+-PARAM[0,1] x[0,0]={FALSE}
+	ENDW
+	RETURN y
+ENDFUNC
+
+FUNC RAND
+	VARIANT y
+	VARIANT x
+	VARIANT z
+	z[0,0]=PARAM[0,0]
+	z[0,1]={127}
+	z=CALL MULT z
+	y=PARAM
+	y[0,0]=z[0,0]+{97}
+	y=CALL MOD y
+	RETURN y
+ENDFUNC
+
+FUNC FEXIT
+	VARIANT y
+	y = COMMAND "LOOKUP"
+	IFEXIT y[0,0] RETURN {{0,TRUE}}
+	y = COMMAND "LOOKRIGHT"
+	IFEXIT y[0,0] RETURN {{1,TRUE}}
+	y = COMMAND "LOOKDOWN"
+	IFEXIT y[0,0] RETURN {{2,TRUE}}
+	y = COMMAND "LOOKLEFT"
+	IFEXIT y[0,0] RETURN {{3,TRUE}}
+	RETURN {{}}
+ENDFUNC
+
+FUNC MOVFWD
+	VARIANT y={{TRUE}}
+	VARIANT x
+	WHILE y[0,0]
+		IFZERO PARAM[0,0] y=COMMAND "UP"
+		IFZERO PARAM[0,0]+{-1} y=COMMAND "RIGHT"
+		IFZERO PARAM[0,0]+{-2} y=COMMAND "DOWN"
+		IFZERO PARAM[0,0]+{-3} y=COMMAND "LEFT"
+		IFZERO y[0,0] RETURN {{TRUE}}
+		x=CALL FEXIT {{}}
+		WHILE x[0,0]
+			IFZERO x[0,0] y=COMMAND "UP"
+			IFZERO x[0,0]+{-1} y=COMMAND "RIGHT"
+			IFZERO x[0,0]+{-2} y=COMMAND "DOWN"
+			IFZERO x[0,0]+{-3} y=COMMAND "LEFT"
+			IFZERO y[0,0] RETURN {{TRUE}}
+		ENDW
+	ENDW
+	RETURN {{FALSE}}
+ENDFUNC
+
+FUNC MOVFWD
+	VARIANT z
+	RETURN {{FALSE}}
+ENDFUNC
+
+FUNC STEP
+	VARIANT dir
+	VARIANT y
+	dir[0,0]=PARAM[0,0]
+	WHILE {TRUE}
+		IFZERO dir[0,0] y=COMMAND "UP"
+		IFZERO dir[0,0]+{-1} y=COMMAND "RIGHT"
+		IFZERO dir[0,0]+{-2} y=COMMAND "DOWN"
+		IFZERO dir[0,0]+{-3} y=COMMAND "LEFT"
+		WHILE y[0,0]
+			IFZERO dir[0,0] RETURN {{3}}
+			IFZERO dir[0,0]+{-1} RETURN {{0}}
+			IFZERO dir[0,0]+{-2} RETURN {{1}}
+			IFZERO dir[0,0]+{-3} RETURN {{2}}
+			y[0,0]={FALSE}
+		ENDW
+		IFZERO dir[0,0] dir[0,1] = {1}
+		IFZERO dir[0,0]+{-1} dir[0,1] = {2}
+		IFZERO dir[0,0]+{-2} dir[0,1] = {3}
+		IFZERO dir[0,0]+{-3} dir[0,1] = {0}
+		dir[0,0]=dir[0,1]
+	ENDW
+	RETURN {{}}
+ENDFUNC
+
+FUNC FLWALL
+	VARIANT pos={{0;0}}
+	VARIANT dir
+	VARIANT y
+	VARIANT ret={{0,FALSE}}
+	dir = PARAM
+	WHILE {TRUE}
+		y=CALL FEXIT {{}}
+		WHILE y[0,0]
+			CALL MOVFWD y
+			RETURN {{TRUE}}
+		ENDW
+		dir = CALL STEP dir
+		IFZERO dir[0,0] pos[0,0] = pos[0,0]+{1}
+		IFZERO dir[0,0]+{-1} pos[0,1] = pos[0,1]+{1}
+		IFZERO dir[0,0]+{-2} pos[0,0] = pos[0,0]+{-1}
+		IFZERO dir[0,0]+{-3} pos[0,1] = pos[0,1]+{-1}
+		ret[0,0]=ret[0,0]+{1}
+		y[0,0]=dir[0,0]+{2}
+		y[0,1]={4}
+		y=CALL MOD y
+		IFZERO pos[0,0] IFZERO pos[0,1] IFNZERO dir[0,0]+-y[0,0] RETURN ret
+	ENDW
+	RETURN {{}}
+ENDFUNC
+
+FUNC LAB
+	VARIANT x
+	VARIANT y
+	VARIANT dir = {{0;4}}
+	dir = CALL RAND dir
+	WHILE -y[0,0]
+		y=CALL MOVFWD dir
+		WHILE y[0,0] 
+			RETURN {{TRUE}} 
+		ENDW
+		y=CALL FLWALL dir
+		WHILE y[0,0]
+			RETURN {{TRUE}}
+		ENDW
+		x[0,1]=y[0,0]
+		x=CALL RAND x
+		y[1,0]=x[0,0]
+		y[0,1]={TRUE}
+		WHILE y[0,1]
+			x[0,0]=x[0,0]+{-1}
+			IFLESS x[0,0] y[0,1]={FALSE}
+			dir = CALL STEP dir
+		ENDW
+		x[0,0]=y[1,0]
+		IFZERO dir[0,0] dir[0,1] = {2}
+		IFZERO dir[0,0]+{-1} dir[0,1] = {3}
+		IFZERO dir[0,0]+{-2} dir[0,1] = {0}
+		IFZERO dir[0,0]+{-3} dir[0,1] = {1}
+		dir[0,0]=dir[0,1]
+	ENDW
+	RETURN {{}}
+ENDFUNC
+
+VARIANT x
+x=CALL LAB x
+x=PARAM
+

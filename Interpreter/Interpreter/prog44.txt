@@ -1,0 +1,23 @@
+FUNC LAB
+	VARIANT y
+	y = PARAM
+	IFZERO y[0,0] y[0,1]={0} RETURN y
+	IFZERO y[0,0]+-{1} y[0,1]={1} RETURN y
+	IFZERO y[0,0]+-{2} y[0,1]={1} RETURN y
+	VARIANT b
+	b = y
+	y[0,0] = b[0,0] +-{1}
+	y = CALL LAB y
+	VARIANT z
+	z[0,0] = b[0,0]+-{2}
+	z = CALL LAB z
+	VARIANT t
+	t[0,1] = y[0,1]+z[0,1]
+	RETURN t
+ENDFUNC
+
+VARIANT x
+x[0,0]={40}
+x=CALL LAB x
+
+

@@ -1,0 +1,14 @@
+FUNC MULT
+	VARIANT y
+	y = PARAM
+	CONVERT DIGIT TO BOOL y[1,0]
+	WHILE y[1,0]
+		y[0,0] = y[0,0] + {-1}
+		y[1,0] = y[1,0] + y[0,0]
+		CONVERT DIGIT TO BOOL y[0,0]
+	ENDW
+RETURN y
+ENDFUNC
+
+VARIANT x
+x=CALL MULT x

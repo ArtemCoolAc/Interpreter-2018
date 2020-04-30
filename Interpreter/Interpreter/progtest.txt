@@ -1,0 +1,4 @@
+VARIANT x
+x = COMMAND "UP"
+x = COMMAND "JUMPUP"
+

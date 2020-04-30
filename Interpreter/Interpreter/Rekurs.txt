@@ -1,0 +1,13 @@
+FUNC S
+	VARIANT y
+	y = PARAM 
+	y[0,0]=y[0,0]+{100}
+	y[0,1]=y[0,1]+-{1}
+	IFNZERO y[0,0] y = CALL S y
+	RETURN y
+ENDFUNC
+
+VARIANT y
+y[0,0] = y[0,0]+{15}
+y[0,1] = y[0,1]+{30}
+y=CALL S y
